@@ -171,7 +171,7 @@ void experimento_recursivo_paralelo() {
         int contador = 0;
         while (contador < 10) {
             auto start3 = chrono::steady_clock::now();
-            MatrixS C = multiplicar_recursivo(A, B);
+            MatrixS C = multiplicar_recursivo_paralelo(A, B);
             auto end3 = chrono::steady_clock::now();
             auto trecursivo = chrono::duration_cast<chrono::nanoseconds>(end3 - start3).count();
             contador++;
