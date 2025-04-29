@@ -23,7 +23,6 @@ int* multiplicar_cache(int* A, int* B, int cols, int rows) {
     for (int i = 0; i < cols * rows; i++) {
         C[i] = 0;
     }
-    //auto start = chrono::steady_clock::now();
     // Multiplicamos
     for (int i = 0; i < rows; i++) {
         for (int k = 0; k < cols; k++) {
@@ -33,9 +32,6 @@ int* multiplicar_cache(int* A, int* B, int cols, int rows) {
             }
         }
     }
-    //auto end = chrono::steady_clock::now();
-    //auto tinitns = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    //cout << " tiempo multiplicacion " << tinitns << " ns " << tinitns / 1000000000.0 << " s" << endl;
 
     return C;
 }

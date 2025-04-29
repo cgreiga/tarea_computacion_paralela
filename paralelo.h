@@ -26,15 +26,6 @@ int** multiplicar_paralelo(int** A, int** B, int rows, int cols) {
     }
 
 
-    //#pragma omp parallel
-    //{
-    //#pragma omp master
-      //  {
-    //        cout << "Numero de hilos: " << omp_get_num_threads() << endl;
-        //}
-    //}
-
-    //multiplicar
 #pragma omp parallel for
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < rows; j++) {
@@ -44,9 +35,7 @@ int** multiplicar_paralelo(int** A, int** B, int rows, int cols) {
             }
         }
     }
-    //auto end = chrono::steady_clock::now();
-    //auto tinitns = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    //cout << " tiempo multiplicacion " << tinitns << " ns " << tinitns / 1000000000.0 << " s" << endl;
+
     return matrix;
 }
 

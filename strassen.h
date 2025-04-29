@@ -19,7 +19,7 @@ using MatrixS = vector<vector<int>>;
 
 #ifndef _multiplicar_strassen
 #define _multiplicar_strassen
-// Multiplicacion con Strassen < O(n3) cómo mido el tiempo en la recursividad ? este también debería paralelizarlo 
+// Multiplicacion con Strassen < O(n3) 
 MatrixS multiplicar_strassen(const MatrixS& A, const MatrixS& B) {
     int size = A.size();
     MatrixS C(size, vector<int>(size, 0));

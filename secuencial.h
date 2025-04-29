@@ -18,18 +18,14 @@ using MatrixS = vector<vector<int>>;
 
 //funcion basica de multiplicacion de matrices secuencial
 int** multiplicar_secuencial(int** A, int** B, int rows, int cols) {
-    // Paso 1: Pide memoria din�mica{ para un arreglo de punteros a filas
-    // esto usa una representacion 2D
+    // se pide memoria
     int** matrix = new int* [rows];
 
-    // Paso 2: Pide memoria para cada arreglo de fila
     for (int i = 0; i < rows; i++) {
         matrix[i] = new int[rows];
     }
-    //matriz C es de dimensi�n [rows][rows] por la multiplicaci�n
 
-    // Paso 3: Multiplica
-    //auto start = chrono::steady_clock::now();
+    // Multiplicar
 
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < rows; j++) {
@@ -39,9 +35,7 @@ int** multiplicar_secuencial(int** A, int** B, int rows, int cols) {
             }
         }
     }
-    //auto end = chrono::steady_clock::now();
-    //auto tinitns = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    //cout << " tiempo multiplicacion " << tinitns << " ns " << tinitns / 1000000000.0 << " s" << endl;
+
     return matrix;
 }
 
