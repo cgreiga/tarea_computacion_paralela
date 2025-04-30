@@ -112,25 +112,25 @@ MatrixS multiplicar_strassen_paralelo(const MatrixS& A, const MatrixS& B) {
     #pragma omp parallel sections
     {
         #pragma omp section
-            { M1 = multiplicar_strassen(sumar(A11, A22), sumar(B11, B22)); }
+            { M1 = multiplicar_strassen_paralelo(sumar(A11, A22), sumar(B11, B22)); }
 
         #pragma omp section
-            { M2 = multiplicar_strassen(sumar(A21, A22), B11); }
+            { M2 = multiplicar_strassen_paralelo(sumar(A21, A22), B11); }
 
         #pragma omp section
-                { M3 = multiplicar_strassen(A11, restar(B12, B22)); }
+                { M3 = multiplicar_strassen_paralelo(A11, restar(B12, B22)); }
 
         #pragma omp section
-                { M4 = multiplicar_strassen(A22, restar(B21, B11)); }
+                { M4 = multiplicar_strassen_paralelo(A22, restar(B21, B11)); }
 
         #pragma omp section
-                { M5 = multiplicar_strassen(sumar(A11, A12), B22); }
+                { M5 = multiplicar_strassen_paralelo(sumar(A11, A12), B22); }
 
         #pragma omp section
-                { M6 = multiplicar_strassen(restar(A21, A11), sumar(B11, B12)); }
+                { M6 = multiplicar_strassen_paralelo(restar(A21, A11), sumar(B11, B12)); }
 
         #pragma omp section
-                { M7 = multiplicar_strassen(restar(A12, A22), sumar(B21, B22)); }
+                { M7 = multiplicar_strassen_paralelo(restar(A12, A22), sumar(B21, B22)); }
             }
 
     MatrixS C11 = sumar(restar(sumar(M1, M4), M5), M7);

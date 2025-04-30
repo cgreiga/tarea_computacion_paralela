@@ -114,22 +114,22 @@ MatrixS multiplicar_recursivo_paralelo(const MatrixS& A, const MatrixS& B) {
     #pragma omp parallel sections
     {
     #pragma omp section
-        { P1 = multiplicar_recursivo(A11, B11); }
+        { P1 = multiplicar_recursivo_paralelo(A11, B11); }
 
     #pragma omp section
-        { P2 = multiplicar_recursivo(A12, B21); }
+        { P2 = multiplicar_recursivo_paralelo(A12, B21); }
 
     #pragma omp section
-        { P3 = multiplicar_recursivo(A11, B12); }
+        { P3 = multiplicar_recursivo_paralelo(A11, B12); }
 
     #pragma omp section
-        { P4 = multiplicar_recursivo(A12, B22); }
+        { P4 = multiplicar_recursivo_paralelo(A12, B22); }
 
     #pragma omp section
-        { P5 = multiplicar_recursivo(A21, B11); }
+        { P5 = multiplicar_recursivo_paralelo(A21, B11); }
 
     #pragma omp section
-        { P6 = multiplicar_recursivo(A22, B21); }
+        { P6 = multiplicar_recursivo_paralelo(A22, B21); }
 
     #pragma omp section
         { P7 = multiplicar_recursivo(A21, B12); }
